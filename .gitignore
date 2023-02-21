@@ -1,0 +1,7 @@
+__pycache__
+*.py[cod]
+.env*
+build
+dist
+MI_EEG_ClassMeth.egg-info
+.vscode
