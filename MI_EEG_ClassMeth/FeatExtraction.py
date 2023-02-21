@@ -493,7 +493,7 @@ class Connectivities(metaclass=ABCMeta):
             for time in np.arange(n_vwt):
                 ax = axs[time, frec]
                 #Plot topomap
-                plot_topomap(flow_of_connectivities[:,time,frec], pos, axes=ax, cmap=cmap_tplt, show=False, contours=0, sensors=False, sphere=None, outlines='head', vmin=flow_of_connectivities.min(), vmax=flow_of_connectivities.max())
+                plot_topomap(flow_of_connectivities[:,time,frec], pos, axes=ax, cmap=cmap_tplt, show=False, contours=0, sensors=False, sphere=None, outlines='head',vlim=(flow_of_connectivities.min(), flow_of_connectivities.max()))
                 
                 connectivity = c_xx_w_f[:,time,frec].reshape(ch,ch) #Get connectivity matrix
                 #Plot connectivities with values greater than thr
@@ -1137,7 +1137,7 @@ class Topoplot():
         f_bank_dir_temp = os.path.join(window_dir_temp,'FB'+str(fb+1)+'/')
         os.mkdir(f_bank_dir_temp)
         for n in range(X.shape[0]):          
-          plot_topomap(X[n,:,w,fb], info, vmin=0, vmax=1, cmap=cmap, contours=0, sensors=False, axes=axs,
+          plot_topomap(X[n,:,w,fb], info, vlim=(0, 1), cmap=cmap, contours=0, sensors=False, axes=axs,
                       show=show)
           fig.savefig(f_bank_dir_temp+'trial_'+str(n)+'.'+format, format=format, facecolor='w', bbox_inches = 'tight') 
           if not show:

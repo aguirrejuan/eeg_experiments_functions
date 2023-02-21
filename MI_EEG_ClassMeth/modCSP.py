@@ -486,7 +486,7 @@ class CSP(TransformerMixin, BaseEstimator):
         # the call plot_topomap
         return patterns.plot_topomap(
             times=components, ch_type=ch_type, layout=layout,
-            vmin=vmin, vmax=vmax, cmap=cmap, colorbar=colorbar, res=res,
+            vlim=(vmin, vmax), cmap=cmap, colorbar=colorbar, res=res,
             cbar_fmt=cbar_fmt, sensors=sensors,
             scalings=scalings, units=units, time_unit='s',
             time_format=name_format, size=size, show_names=show_names,
@@ -633,8 +633,7 @@ class CSP(TransformerMixin, BaseEstimator):
         filters = EvokedArray(self.filters_, info, tmin=0)
         # the call plot_topomap
         return filters.plot_topomap(
-            times=components, ch_type=ch_type, layout=layout, vmin=vmin,
-            vmax=vmax, cmap=cmap, colorbar=colorbar, res=res,
+            times=components, ch_type=ch_type, layout=layout, vlim=(vmin,vmax), cmap=cmap, colorbar=colorbar, res=res,
             cbar_fmt=cbar_fmt, sensors=sensors, scalings=scalings, units=units,
             time_unit='s', time_format=name_format, size=size,
             show_names=show_names, title=title, mask_params=mask_params,
