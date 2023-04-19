@@ -9,8 +9,8 @@ Here you can get help of any object by pressing Ctrl+I in front of it, either on
 from scipy.signal import butter, lfilter, lfilter_zi, filtfilt #, freqz
 import numpy as np
 from mne.io import read_raw_edf
-#from mne.decoding import CSP
-from MI_EEG_ClassMeth.modCSP import CSP
+from mne.decoding import CSP
+#from MI_EEG_ClassMeth.modCSP import CSP
 #from modCSP import CSP
 import matplotlib.pyplot as plt
 import pandas as pd
