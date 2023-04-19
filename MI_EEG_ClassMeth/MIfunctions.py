@@ -288,13 +288,14 @@ class CSP_epochs_filter_extractor(TransformerMixin,BaseEstimator):
         self.filters  =np.zeros((self.ncomp,channels,nf))
         csp_l = []
         for f in range(nf):
-            
-            if self.PCov == True:
-                csp_l+= [CSP(n_components=ncomp, reg=self.reg, log=True,transform_into='average_power').fit(Xraw[:,:,f],y)]
-                Xcsp[:,:,f] = csp_l[f].transform(Xraw[:,:,f])
-            else:
-                csp_l+= [CSP(n_components=ncomp, reg=self.reg, log=True,transform_into='average_power').fit(Xraw[:,:,:,f],y)]
-                Xcsp[:,:,f] = csp_l[f].transform(Xraw[:,:,:,f])
+#             if self.PCov == True:
+#                 csp_l+= [CSP(n_components=ncomp, reg=self.reg, log=True,transform_into='average_power', PCov =self.PCov).fit(Xraw[:,:,f],y)]
+#                 Xcsp[:,:,f] = csp_l[f].transform(Xraw[:,:,f])
+#             else:
+#                 csp_l+= [CSP(n_components=ncomp, reg=self.reg, log=True,transform_into='average_power', PCov =self.PCov).fit(Xraw[:,:,:,f],y)]
+#                 Xcsp[:,:,f] = csp_l[f].transform(Xraw[:,:,:,f])
+            csp_l+= [CSP(n_components=ncomp, reg=self.reg, log=True,transform_into='average_power', PCov =self.PCov).fit(Xraw[:,:,f],y)]
+            Xcsp[:,:,f] = csp_l[f].transform(Xraw[:,:,f])
             self.filters[:,:,f] = csp_l[f].filters_[:self.ncomp]
         return csp_l, Xcsp
 
