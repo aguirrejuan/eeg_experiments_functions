@@ -1127,7 +1127,7 @@ class Topoplot():
       shutil.rmtree(parent_dir_temp)
       os.mkdir(parent_dir_temp)
 
-    X_tplt = np.zeros((X.shape[0], resolution, resolution, 1, X.shape[2], X.shape[3]), dtype=np.int)
+    X_tplt = np.zeros((X.shape[0], resolution, resolution, 1, X.shape[2], X.shape[3]), dtype=np.int64)
     fig, axs = plt.subplots(1, 1, figsize=(5,5))
     
     for w in tqdm(range(X.shape[2])):
